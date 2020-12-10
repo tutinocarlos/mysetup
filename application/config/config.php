@@ -32,7 +32,7 @@ switch ($_SERVER['SERVER_NAME']) {
    
 		default:
 
-			$base_url = 'https://www.mysetup.com.ar/';
+			$base_url = 'https://mysetup.com.ar/';
 		break;
 }
 $config['base_url'] = $base_url;
@@ -76,7 +76,7 @@ $config['uri_protocol']	= 'REQUEST_URI';
 |
 | https://codeigniter.com/user_guide/general/urls.html
 */
-$config['url_suffix'] = '.rx_html';
+$config['url_suffix'] = '';
 
 /*
 |--------------------------------------------------------------------------
