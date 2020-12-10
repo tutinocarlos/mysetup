@@ -107,7 +107,7 @@ $(function() {
 			console.log('data');
 			console.log(data);
 			// Make sure that the formMessages div has the 'error' class.
-			$("p.form-messege").addClass('error').html('Error interno');
+			$("p.form-messege").addClass('error').html(data);
 
 			// Set the message text.
 			if (data.responseText !== '') {
