@@ -121,5 +121,5 @@ $(function() {
 });
 
 function myFunction(){
-	$("div.floating-wpp-popup").addClass('active');
+//	$("div.floating-wpp-popup").addClass('active');
 }
