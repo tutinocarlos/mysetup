@@ -32,7 +32,7 @@ class MY_controller extends CI_Controller {
     $this->load->library('email');
     $this->load->helper('url');
     /* configuro el envio */
-
+			$data['datos']['server'] = $_SERVER['SERVER_NAME'];
     $this->email->from('no-reply@mysetup.com.ar', 'MySetup.com.ar'); 
 
     if($usr)
