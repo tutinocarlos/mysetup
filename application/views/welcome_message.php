@@ -127,10 +127,12 @@
 								</ul>
 							</nav>
 -->
+<!--
 							<div class="login-btn">
 								<a class="modal-view button" href="#" data-toggle="modal" data-target="#register">WebMail</a>
 								<a class="modal-view button" href="#" data-toggle="modal" data-target="#productModal">CPanel</a>
 							</div>
+-->
 						</div>
 					</div>
 				</div>
