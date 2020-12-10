@@ -1,6 +1,6 @@
 $(function() {
 	
-	setTimeout(myFunction, 3000);
+	setTimeout(myFunction, 5000);
 	
 
 	// Get the form.
