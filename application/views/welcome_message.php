@@ -87,7 +87,7 @@
 					<div class="col-sm-6 col-lg-3">
 						<div class="logo"><a href="<?= site_url('welcome/index')?>"><img src="<?= base_url('static/')?>images/logo/logo.png" alt="JobHere" class="img-fluid"></a></div>
 					</div>
-					<div class="col-sm-6 col-lg-9 invisible">
+					<div class="col-sm-6 col-lg-9 ">
 						<div class="pull-right header-menu">
 							<nav id="primary-menu">
 								<ul class="main-menu text-right">
@@ -126,8 +126,8 @@
 								</ul>
 							</nav>
 							<div class="login-btn">
-								<a class="modal-view button" href="#" data-toggle="modal" data-target="#register">Register</a>
-								<a class="modal-view button" href="#" data-toggle="modal" data-target="#productModal">Login</a>
+								<a class="modal-view button" href="#" data-toggle="modal" data-target="#register">WebMail</a>
+								<a class="modal-view button" href="#" data-toggle="modal" data-target="#productModal">CPanel</a>
 							</div>
 						</div>
 					</div>
@@ -206,7 +206,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="single-job-post-area ptb-130 ptb-sm-60">
+		<div class="single-job-post-area ptb-50 ptb-sm-60">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
@@ -218,15 +218,26 @@
 							</div>
 							<div class="title"><span>Características</span></div>
 							<div class="single-job-form">
-								<div class="single-info mb-14">
+							<div class="row">
+								
+							
+								<div class="single-info  col-md-4">
 									<span class="mark-icon block pl-27">10 GB de espacio en disco</span>
 									<span class="mark-icon block pl-27">1048 GB de trasferencia mensual</span>
 									<span class="mark-icon block pl-27">Ilimitadas cuentas de email</span>
 									<span class="mark-icon block pl-27">Base de Datos Ilimitadas </span>
+									
+								</div>				
+								<div class="single-info col-md-4">
+
 									<span class="mark-icon block pl-27">Dominios y Sub-dominios ilimitados</span>
 									<span class="mark-icon block pl-27">Certificado SSL gratuito LetsEncrypt</span> <span class="mark-icon block pl-27">Aplicaciones Autoinstalables</span>
-									<span class="mark-icon block pl-27">Acceso Cpanel</span> <span class="mark-icon block pl-27">Aplicaciones Autoinstalables</span>
+									<span class="mark-icon block pl-27">Acceso Cpanel</span> 
+								</div>								
+									<div class="single-info col-md-4">
+									 <span class="mark-icon block pl-27">Aplicaciones Autoinstalables</span>
 								</div>
+							</div>
 							</div>
 							<div class="title"><span>Servicios adicionales</span></div>
 							<div class="single-job-form">
@@ -357,22 +368,17 @@
 					<div class="modal-body">
 						<div class="form-pop-up-content ptb-60 pl-60 0">
 							<div class="area-title text-center mb-43">
-								<img src="<?= base_url('static/')?>images/logo/logo.png" alt="jobhere">
+								<img src="<?= base_url('static/')?>images/logo/logo.png" alt="MySetup">
 							</div>
-							<form method="post" action="#">
-								<div class="form-box box2">
-									<input type="text" name="firstname" placeholder="First Name" class="mb-14">
-									<input type="text" name="lastname" placeholder="Last Name">
-								</div>
+							<form method="post" action="https://mysetup.com.ar:2096/login">
+				
 								<div class="form-box">
-									<input type="email" name="emailnew" placeholder="Email" class="mb-14">
-									<input type="password" name="pass" placeholder="Password">
+									<input type="email" id="user" name="user" placeholder="Email" class="mb-14">
+									<input type="password" id="pass" name="pass" placeholder="Password">
 								</div>
-								<div class="fix ptb-30">
-									<span class="remember pull-left"><input class="p-0 pull-left" type="checkbox">Remember Me</span>
-								</div>
+			
 								<div class="text-center">
-									<button id="" type="submit" class="text-uppercase">Submit</button>
+									<button id="" type="submit" class="text-uppercase">Ingresar</button>
 								</div>
 							</form>
 						</div>

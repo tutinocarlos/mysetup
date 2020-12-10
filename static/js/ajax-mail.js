@@ -32,6 +32,11 @@ $(function() {
 			$("#error_email").html('');
 			$("#email").addClass("is-valid").removeClass("is-invalid");
 		}		
+		 var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
+		if (caract.test($("#email").val()) == false){
+			$("#email").addClass("is-invalid");
+			$("#error_email").html("Ingrese email válido");
+		}
 		
 		if($("#telefono").val() == ''){
 			error = true;
