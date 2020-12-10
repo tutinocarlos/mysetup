@@ -10,5 +10,5 @@ $config['protocol'] = 'smtp';
  $config['charset'] = "utf-8";
  $config['mailtype'] = "html";
 	$config['smtp_crypto'] = 'tls';
-	$config['smtp_crypto'] = 'ssl';
+//	$config['smtp_crypto'] = 'ssl';
  $config['newline'] = "\r\n";
