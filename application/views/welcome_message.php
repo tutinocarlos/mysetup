@@ -85,7 +85,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-6 col-lg-3">
-						<div class="logo"><a href="index.html"><img src="<?= base_url('static/')?>images/logo/logo.png" alt="JobHere" class="img-fluid"></a></div>
+						<div class="logo"><a href="<?= base_url()?>"><img src="<?= base_url('static/')?>images/logo/logo.png" alt="JobHere" class="img-fluid"></a></div>
 					</div>
 					<div class="col-sm-6 col-lg-9 invisible">
 						<div class="pull-right header-menu">
@@ -134,7 +134,7 @@
 				</div>
 			</div>
 			<!-- Mobile Menu Area start -->
-			<div class="mobile-menu-area">
+			<div class="mobile-menu-area invisible">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12 col-md-12 col-sm-12">
