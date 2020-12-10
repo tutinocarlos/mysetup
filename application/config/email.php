@@ -2,7 +2,7 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 $config['protocol'] = 'smtp';
 // $config['mail_path'] = 'mail.mysetup.com.ar';
- $config['smtp_host'] = 'smtp.mailchannels.net';
+ $config['smtp_host'] = 'mail.mysetup.com.ar';
 // $config['smtp_port'] = 465;
  $config['smtp_port'] = 587;
  $config['smtp_user'] = 'no-reply@mysetup.com.ar';
