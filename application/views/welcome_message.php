@@ -89,6 +89,7 @@
 					</div>
 					<div class="col-sm-6 col-lg-9 ">
 						<div class="pull-right header-menu">
+<!--
 							<nav id="primary-menu">
 								<ul class="main-menu text-right">
 									<li><a href="index.html">Home</a>
@@ -125,6 +126,7 @@
 									<li><a href="contact.html">Contact</a></li>
 								</ul>
 							</nav>
+-->
 							<div class="login-btn">
 								<a class="modal-view button" href="#" data-toggle="modal" data-target="#register">WebMail</a>
 								<a class="modal-view button" href="#" data-toggle="modal" data-target="#productModal">CPanel</a>
