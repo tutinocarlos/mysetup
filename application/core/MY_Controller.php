@@ -63,12 +63,12 @@ class MY_controller extends CI_Controller {
 
     if($this->email->send())
     {
-//        return TRUE;
+        return TRUE;
     }else{
- 		 print_r($this->email->print_debugger(), true);
+ 		 print_r($this->email->print_debugger(), true);die();
+    return FALSE;
 		}
 	
-//    return FALSE;
 
 		}	
 }
