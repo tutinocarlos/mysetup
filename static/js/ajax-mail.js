@@ -81,8 +81,6 @@ $(function() {
 			 return false;
 		 }
 		
-		
-		
 		// Serialize the form data.
 		var formData = $(form).serialize();
 
