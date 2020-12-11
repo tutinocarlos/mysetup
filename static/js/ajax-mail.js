@@ -80,6 +80,9 @@ $(function() {
 		if(error){
 			 return false;
 		 }
+		
+		
+		
 		// Serialize the form data.
 		var formData = $(form).serialize();
 
@@ -90,37 +93,41 @@ $(function() {
 			type: 'POST',
 			url: $(form).attr('action'),
 			data: formData,
-			beforeSend: function(  ) {
-    		$("#enviar_contrato").html('Enviando !!!').prop('disabled', true);
-  }
-		})
-
-		.done(function(response) {
-			console.log('response');
-			console.log(response);
-			if(!response.error ){
+			beforeSend: function(  ){
+				$("#enviar_contrato").html('Enviando !!!').prop('disabled', true);
+			},
+    	success: function(response) {
+ console.log('Response');
+ console.log(Response);
+							if(!response.error ){
 				$('#contact-form')[0].reset();
 				$("section#contratar").html("");
 				$("section#contratar").html(response.html);
 			}else{
 				$("p.form-messege").addClass('error').html('Error interno PHP7.5');
 			}
+        
+    },
+    error: function(xhr) { // if error occured
+ console.log('error');
+			$("p.form-messege").addClass('error').html(data);
+        alert("Error occured.please try again");
+        $(placeholder).append(xhr.statusText + xhr.responseText);
+        $(placeholder).removeClass('loading');
+    },
+    complete: function() {
+ console.log('termino');
+    },
+		})
+
+		.done(function(response) {
+			console.log('response');
+			console.log(response);
+
 
 			// Clear the form.
 		})
-		.fail(function(data) {
-			console.log('data');
-			console.log(data);
-			// Make sure that the formMessages div has the 'error' class.
-			$("p.form-messege").addClass('error').html(data);
 
-			// Set the message text.
-			if (data.responseText !== '') {
-				$(formMessages).text(data.responseText);
-			} else {
-				$(formMessages).text('Oops! An error occured and your message could not be sent.');
-			}
-		});
 	});
 
 });
