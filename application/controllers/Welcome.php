@@ -31,10 +31,10 @@ class Welcome extends MY_controller {
 			$class = 'error';
 			$error = true;
 			$status =  200;
-								$email_data = array(
-						'datos'   => $this->input->post(),
-						'subject' => 'Contrato Online'
-					);
+			$email_data = array(
+				'datos'   => $this->input->post(),
+				'subject' => 'Contrato Online'
+			);
 
 				 /* Quito el uri para enviar el email */
 
@@ -49,14 +49,9 @@ class Welcome extends MY_controller {
 						$class = 'success';
 						$error = false;
 						$html = '<div class="container">	<div class="row"><div class="alert-group"><div class="alert alert-success "><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>       <strong>Perfecto !!</strong><br>en breve recibiras un email a: '.$this->input->post('email').' <br>para continuar el proceso de activación y delegación.</div></div></div></div>';
-//							$response = array(
-//								'error' => false,
-//								'dsadasdsad' => 'false',
-//							);
-//						echo json_encode($response);
-//						die();
+
 					}else{
-//						die('NO   manda');
+
 						$msj = 'Error el emviar su mensaje';
 					}
 		
