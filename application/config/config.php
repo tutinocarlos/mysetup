@@ -23,17 +23,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-
 switch ($_SERVER['SERVER_NAME']) {
     case 'mysetup.local':
 
 			$base_url = 'http://mysetup.local/';
-        break;
+			break;
    
 		default:
-
 			$base_url = 'https://mysetup.com.ar/';
-		break;
+			break;
 }
 $config['base_url'] = $base_url;
 

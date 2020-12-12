@@ -23,7 +23,7 @@ class Welcome extends MY_controller {
 		$this->load->view('welcome_message');
 	}	
 	public function contratar(){
-//		var_dump($_POST);
+//		var_dump($_POST);die();
 //$status = http_response_code(500);
 		
 		if( $this->input->is_ajax_request() ){

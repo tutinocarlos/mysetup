@@ -51,6 +51,9 @@
 	<script src="<?= base_url('static/')?>js/vendor/modernizr-2.8.3.min.js"></script>
 		<script src="<?= base_url('static/')?>js/vendor/jquery-1.12.4.min.js"></script>
 		<script src="<?= base_url('static/')?>js/floating-wpp.min.js"></script>
+<!--		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+		<script src="<?= base_url('static/')?>vendor/messages_es_AR.js"></script>
 </head>
 
 <body data-base_url="<?= base_url()?>">
@@ -187,29 +190,7 @@
 			<!-- Mobile Menu Area end -->
 		</header>
 		<section id="contratar">
-		<div class="search-job-area bg-5">
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-10 col-lg-12 ml-auto mr-auto">
-						<div class="job-search-content text-center">
-							<h4>Asesoramiento + Seguridad + Soporte </h4>
-							<h2>Pago en Pesos Argentinos</h2>
-							<form action="#" method="post">
-								<div class="form-container">
-									<div class="box-select">
 
-										<div class="select">
-											<button type="button">Características</button>
-										</div>
-									</div>
-
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="single-job-post-area ptb-50 ptb-sm-60">
 			<div class="container">
 				<div class="row">
@@ -239,6 +220,7 @@
 									<span class="mark-icon block pl-27">Acceso Cpanel</span> 
 								</div>								
 									<div class="single-info col-md-4">
+									 <span class="mark-icon block pl-27">Git™ Version Control</span>
 									 <span class="mark-icon block pl-27">Aplicaciones Autoinstalables</span>
 								</div>
 							</div>
@@ -255,32 +237,36 @@
 							<style>
 								.error{
 									color:red;
+									margin: 10px 0;
 								}
 							</style>
-<form action="<?= base_url('contratar')?>"  method="post" id="contact-form">
-<?php echo validation_errors(); ?>
+<!--<form action="<?php  //echo base_url('contratar')?>"  method="post" id="form-contrato">-->
+
+
+<form  id="contrato">
+
 <div class="row">
 	
     <div class="form-group col-md-4"> <!-- Full Name -->
-        <label for="full_name_id" class="control-label">Nombre y Apellido </label>
-        <input type="text" class="form-control" id="full_name" name="full_name" value="<?php echo set_value('full_name'); ?>">
+        <label for="full_name" class="control-label">Nombre y Apellido </label>
+        <input type="text" class="form-control" id="full_name" name="full_name" value="">
         <span class="error" id="error_full_name"></span>
     </div>    
 
     <div class="form-group col-md-4"> <!-- Street 1 -->
-        <label for="street1_id" class="control-label">Email</label>
-        <input type="text" class="form-control" id="email" name="email"  value="<?php echo set_value('email'); ?>">
+        <label for="email" class="control-label">Email</label>
+        <input type="text" class="form-control" id="email" name="email"  value="">
         <span class="error" id="error_email"></span>
     </div>                    
                             
     <div class="form-group col-md-4"> <!-- Street 2 -->
-        <label for="street2_id" class="control-label">Teléfono</label>
-        <input type="text" class=" form-control" id="telefono" name="telefono" value="<?php echo set_value('telefono'); ?>">
+        <label for="telefono" class="control-label">Teléfono</label>
+        <input type="text" class=" form-control" id="telefono" name="telefono" value="">
         <span class="error" id="error_telefono"></span>
     </div>    
 </div>
     <div class="form-group"> <!-- City-->
-        <label for="city_id" class="control-label">Plan</label>
+        <label for="plan" class="control-label">Plan</label>
         <input type="text" class="form-control" id="plan" name="plan" value="Plan 10 GB full 2040 - Anual" readonly>
         <span class="error" id="error_plan"></span>
     </div>
@@ -288,23 +274,22 @@
 <div class="col-md-6">
 	
 	<div class="form-group ">
-    <label class="form-check-label">
-      <input id="registro" class="form-check-input" value="requiere_dominio" name="requiero_dominio" type="checkbox"> Requiero registrar dominio
-    </label>
+      <input id="registro" class="form-check-input" value="requiere_dominio" name="servicio[]" type="checkbox"> Requiero registrar dominio
+   
 </div>
 	<div class="form-group ">
-    <label class="form-check-label">
-      <input id="delegacion" class="form-check-input" value="posee_dominio" name="posee_dominio"  type="checkbox">Ya poseo Dominio
-    </label>
+  
+      <input id="delegacion" class="form-check-input" value="posee_dominio" name="servicio[]"  type="checkbox">Ya poseo Dominio
+    
     </div>
-	<span class="error" id="error_dns"></span>
+   <q class="error"></q>
 	
 </div>
 <div class="col-md-6">
 	
 		<div class="form-group "> <!-- City-->
         <label for="city_id" class="control-label">Dominio</label>
-        <input type="text" class="form-control" id="dominio" name="dominio"  value="<?php echo set_value('dominio'); ?>" >
+        <input type="text" class="form-control" id="dominio" name="dominio"  value="" >
     </div>
     <span class="error" id="error_dominio"></span> 
 </div>
@@ -322,6 +307,33 @@
 			</div>
 		</div>
 		</section>
+		
+		
+<!--		IMAGEN GRABDE-->
+		<div class="search-job-area bg-5" style="display:none;">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-10 col-lg-12 ml-auto mr-auto">
+						<div class="job-search-content text-center">
+							<h4>Asesoramiento + Seguridad + Soporte </h4>
+							<h2>Pago en Pesos Argentinos</h2>
+							<form action="#" method="post">
+								<div class="form-container">
+									<div class="box-select">
+
+										<div class="select">
+											<button type="button">Características</button>
+										</div>
+									</div>
+
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<!--		IMAGEN GRABDE-->
 		<!-- End of Footer area -->
 	</div>
 	<!--End of Main Wrapper Area-->

@@ -1,132 +1,102 @@
+$(document).ready(function(){
+	
+	jQuery.validator.addMethod("emailordomain", function(value, element) {
+  return this.optional(element) || /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(value) || /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/.test(value);
+}, "Ingrese un dominio válido");
+	
+	$("#contrato").validate({
+		
+		 rules: {
+      full_name : {
+        required: true,
+       
+      },
+      dominio: {
+        required: true,
+        emailordomain: true
+      },email:{
+				required:true,
+				email: true
+			},
+			 telefono:{
+				required:true
+				 
+			 },
+			 'servicio[]':{
+				 	required: true,
+					minlength: 1
+		 }
+    },
+		
+		messages: {
+            'servicio[]': {
+                required: "Selecciona una opción",
+               minlength: "Check no more than {0} boxes"
+            }
+        },
+		 errorPlacement: function(error, element) {
+//			 console.log('element.type');
+            if (element[0].type == 'checkbox') {
+
+							
+                error.appendTo(('q.error'));
+            }
+            else {
+                error.insertAfter(element);
+            }
+        },
+		
+		    submitHandler: function(form) {
+	$.ajax({
+		dataType: 'json',
+		type: "POST",
+		url: $("body").data('base_url')+"welcome/contratar",
+		data: $("form#contrato").serializeObject(),
+		success: function(response) {
+			console.log('enviar_contrato');
+			console.log(response);
+			if (response.error) {
+			}
+			$('form#contrato')[0].reset()
+//			$('#form-contrato').find('input, textarea, button, select').attr('disabled',false);
+			$("#form-messege").html(response.response);
+
+		}
+
+	});
+    }
+	});
+	
+	$("#senviar_contrato").click(function(e){
+	e.preventDefault();
+
+
+	});
+	
+});
+$.fn.serializeObject = function()
+{
+   var o = {};
+
+   var a = this.serializeArray();
+   $.each(a, function() {
+		 console.log(this.name);
+       if (o[this.name]) {
+           if (!o[this.name].push) {
+               o[this.name] = [o[this.name]];
+           }
+           o[this.name].push(this.value || '');
+       } else {
+           o[this.name] = this.value || '';
+       }
+   });
+   return o;
+};
+	
 $(function() {
 	
 	setTimeout(myFunction, 5000);
-	
 
-	// Get the form.
-	var form = $('#contact-form');
-
-	// Get the messages div.
-
-	// Set up an event listener for the contact form.
-	$(form).submit(function(e) {
-		
-		// Stop the browser from submitting the form.
-		e.preventDefault();
-		var error = false;
-		var mensaje = "Campo requerido";
-		if($("#full_name").val() == ''  ){
-			error = true;
-			$("#full_name").addClass("is-invalid");
-			$("#error_full_name").html("Campo requerido");
-		}else{
-			$("#error_full_name").html('');
-			$("#full_name").addClass("is-valid").removeClass("is-invalid");
-		}
-		
-		if($("#email").val() == ''){
-			error = true;
-			$("#email").addClass("is-invalid");
-			$("#error_email").html("Campo requerido");
-		}else{
-			$("#error_email").html('');
-			$("#email").addClass("is-valid").removeClass("is-invalid");
-		}		
-		 var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
-		if (caract.test($("#email").val()) == false){
-			$("#email").addClass("is-invalid");
-			$("#error_email").html("Ingrese email válido");
-		}
-		
-		if($("#telefono").val() == ''){
-			error = true;
-			$("#telefono").addClass("is-invalid");
-			$("#error_telefono").html("Campo requerido");
-		}else{
-			$("#error_telefono").html('');
-				$("#telefono").addClass("is-valid").removeClass("is-invalid");
-		}
-		if($("#dominio").val()  == ''){
-			error = true;
-			$("#dominio").addClass("is-invalid");
-			$("#error_dominio").html("Campo requerido");
-		}else{
-			$("#error_dominio").html('');
-			$("#dominio").addClass("is-valid").removeClass("is-invalid");
-		}
-		if($("#plan").val()  == ''){
-			error = true;
-			$("#plan").addClass("is-invalid");
-			$("#error_plan").html("Campo requerido");
-		}else{
-			$("#plan").addClass("is-valid").removeClass("is-invalid");
-			$("#error_plan").html('');
-		}
-		
-		if ($('#registro').prop('checked') || $('#delegacion').prop('checked')) {
-    	$("#error_dns").html("");
-}else{
-	
-	error = true;
-    	$("#error_dns").html("Seleccione una opción");
-}
-		
-//		$('.form-check-input:checked').each(
-//    function() {
-//        alert("El checkbox con valor " + $(this).val() + " está seleccionado");
-//    }
-//);
-		
-		if(error){
-			 return false;
-		 }
-		
-		// Serialize the form data.
-		var formData = $(form).serialize();
-
-//		alert(formData);
-		// Submit the form using AJAX.
-		$.ajax({
-			dataType: 'json',
-			type: 'POST',
-			url: $(form).attr('action'),
-			data: formData,
-			beforeSend: function(  ){
-				$("#enviar_contrato").html('Enviando !!!').prop('disabled', true);
-			},
-    	success: function(response) {
- console.log('Response');
- console.log(Response);
-							if(!response.error ){
-				$('#contact-form')[0].reset();
-				$("section#contratar").html("");
-				$("section#contratar").html(response.html);
-			}else{
-				$("p.form-messege").addClass('error').html('Error interno PHP7.5');
-			}
-        
-    },
-    error: function(xhr) { // if error occured
- console.log('error');
-			$("p.form-messege").addClass('error').html(data);
-        alert("Error occured.please try again");
-        $(placeholder).append(xhr.statusText + xhr.responseText);
-        $(placeholder).removeClass('loading');
-    },
-    complete: function() {
- console.log('termino');
-    },
-		})
-
-		.done(function(response) {
-			console.log('response');
-			console.log(response);
-
-
-			// Clear the form.
-		})
-
-	});
 
 });
 
