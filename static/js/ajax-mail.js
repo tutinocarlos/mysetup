@@ -53,7 +53,12 @@ $(document).ready(function () {
 				type: "POST",
 				url: $("body").data('base_url') + "welcome/contratar",
 				data: $("form#contrato").serializeObject(),
+				beforeSend: function() {
+        // setting a timeout
+        	$("#enviar_contrato").html('Enviando Mensaje....');
+    		},
 				success: function (response) {
+					$("#enviar_contrato").html('Mensaje nviado');
 					console.log('enviar_contrato');
 					console.log(response);
 					if (response.error) {
