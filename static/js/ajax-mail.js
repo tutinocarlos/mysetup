@@ -3,7 +3,7 @@ $(document).ready(function () {
 		e.preventDefault();
 		
 		gtag('event', 'clic', {
-			'event_category': 'saliente',
+			'event_category': 'login',
 			'event_label': 'url',
 			'transport_type': 'beacon',
 			'event_callback': function(){alert('envia');}
