@@ -1,5 +1,14 @@
 $(document).ready(function () {
-	$(".progress-bar").css('width','5%').attr('aria-valuenow', '5%');
+	$("button#enviar_contratos").click(function (e) {
+		e.preventDefault();
+		
+		gtag('event', 'clic', {
+			'event_category': 'saliente',
+			'event_label': 'url',
+			'transport_type': 'beacon',
+			'event_callback': function(){alert('envia');}
+		});
+	});
 
 	jQuery.validator.addMethod("emailordomain", function (value, element) {
 		return this.optional(element) || /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(value) || /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/.test(value);
@@ -74,9 +83,6 @@ $(document).ready(function () {
 		}
 	});
 
-	$("#senviar_contrato").click(function (e) {
-		e.preventDefault();
-	});
 
 });
 $.fn.serializeObject = function () {
