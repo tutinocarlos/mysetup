@@ -1,6 +1,16 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-179017882-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-179017882-1');
+</script>
+
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<title>MySETUP - hosting Argentina</title>
@@ -246,32 +256,32 @@
 <form  id="contrato">
 
 <div class="row">
-	
-    <div class="form-group col-md-4"> <!-- Full Name -->
+	    <div class="form-group col-md-3"> <!-- City-->
+        <label for="plan" class="control-label">Plan</label>
+        <input type="text" class="form-control" id="plan" name="plan" value="Plan 10 GB full 2040 - Anual" readonly>
+        <span class="error" id="error_plan"></span>
+    </div>
+    <div class="form-group col-md-3"> <!-- Full Name -->
         <label for="full_name" class="control-label">Nombre y Apellido </label>
         <input type="text" class="form-control" id="full_name" name="full_name" value="">
         <span class="error" id="error_full_name"></span>
     </div>    
 
-    <div class="form-group col-md-4"> <!-- Street 1 -->
+    <div class="form-group col-md-3"> <!-- Street 1 -->
         <label for="email" class="control-label">Email</label>
         <input type="text" class="form-control" id="email" name="email"  value="">
         <span class="error" id="error_email"></span>
     </div>                    
                             
-    <div class="form-group col-md-4"> <!-- Street 2 -->
+    <div class="form-group col-md-3"> <!-- Street 2 -->
         <label for="telefono" class="control-label">Teléfono</label>
         <input type="text" class=" form-control" id="telefono" name="telefono" value="">
         <span class="error" id="error_telefono"></span>
     </div>    
 </div>
-    <div class="form-group"> <!-- City-->
-        <label for="plan" class="control-label">Plan</label>
-        <input type="text" class="form-control" id="plan" name="plan" value="Plan 10 GB full 2040 - Anual" readonly>
-        <span class="error" id="error_plan"></span>
-    </div>
+
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-3">
 	
 	<div class="form-group ">
       <input id="registro" class="form-check-input" value="requiere_dominio" name="servicio[]" type="checkbox"> Requiero registrar dominio
@@ -285,7 +295,7 @@
    <q class="error"></q>
 	
 </div>
-<div class="col-md-6">
+<div class="col-md-3">
 	
 		<div class="form-group "> <!-- City-->
         <label for="city_id" class="control-label">Dominio</label>
@@ -307,8 +317,7 @@
 			</div>
 		</div>
 		</section>
-		
-		
+
 <!--		IMAGEN GRABDE-->
 		<div class="search-job-area bg-5" style="display:none;">
 			<div class="container">
