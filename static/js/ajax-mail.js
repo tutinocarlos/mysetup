@@ -74,7 +74,7 @@ $(document).ready(function () {
 						
 					}
 					$('form#contrato')[0].reset()
-					$('p.form-messege').html(response.html)
+					$('div.form-messege').html(response.html)
 					//			$('#form-contrato').find('input, textarea, button, select').attr('disabled',false);
 
 				}

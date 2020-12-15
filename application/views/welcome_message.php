@@ -306,11 +306,11 @@
 </div>
   </div> 
     <hr>
-    <div class="form-group"> <!-- Submit Button -->
+    <div class="form-group form-messege "> <!-- Submit Button -->
         <button id="enviar_contrato"  type="submit" class="btn btn-primary">Enviar mensaje !</button>
         <button style="display:none;" id="enviar_contratos"  type="button" class="btn btn-primary">Enviar mensaje !</button>
     </div>     
-   <p class="form-messege"></p> 
+<!--   <p class="form-messege"></p> -->
 </form>
 
 						</div>
