@@ -1,6 +1,6 @@
 <?php
 
-
+date_default_timezone_set('AAmerica/Argentina/Buenos_Aires');
 if(file_exists("prueba.txt")){
 	
 	$hora  =  date('l jS \of F Y h:i:s A');
