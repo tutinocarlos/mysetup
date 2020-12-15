@@ -10,7 +10,7 @@ if(file_exists("prueba.txt")){
 
 	fwrite($file, "Hora: ".$hora . PHP_EOL);
 
-	fwrite($file, "Otra másc" . PHP_EOL);
+	fwrite($file, "cambio cron" . PHP_EOL);
 
 	//while(!feof($file)) {
 	//
