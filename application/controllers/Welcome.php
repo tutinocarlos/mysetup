@@ -18,9 +18,17 @@ class Welcome extends MY_controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function cakeshop(){
+		$this->load->view('feli/index');
+		
+	}
 	public function index()
 	{
 		$this->load->view('welcome_message');
+	}		public function mapa()
+	{
+		$this->load->view('mapa2');
+//		$this->load->view('mapa');
 	}	
 	public function contratar(){
 //		var_dump($_POST);die();

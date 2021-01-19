@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+//cpanel mysetup pass _Qu[lX3zREG,
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
