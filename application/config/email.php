@@ -14,7 +14,7 @@ $config['protocol'] = 'mail';
 
  $config['smtp_port'] = 465;
  $config['smtp_user'] = 'no-reply@mysetup.com.ar';
- $config['smtp_pass'] = 'Dv6~=VRX=6y=[ohN^@';
+ $config['smtp_pass'] = 'kp)O3PVcic!=';
  $config['charset'] = "utf-8";
  $config['mailtype'] = "html";
 	$config['smtp_crypto'] = 'tls';
