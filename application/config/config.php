@@ -6,6 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //
 //info kp)O3PVcic!=
 //	no-reply kp)O3PVcic!=
+// key api views/maps2 AIzaSyBbYnx9_rlM5VLtKl-ivUc7-Z4BvYQ38aM
 
 /*
 |--------------------------------------------------------------------------
