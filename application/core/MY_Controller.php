@@ -8,23 +8,16 @@ class MY_controller extends CI_Controller {
 				parent::__construct();
 				error_reporting(E_ALL);
 				
-//				$this->load->library('ciqrcode');
+			/*js COMUNES PAra EL BACKEND*/
+			$js_datatable = array(
+				'static/Manager/global_assets/datatables/datatables.min.js',
+				'static/Manager/global_assets/datatables/datatables_checkbox.min.js',
 				
-				ini_set('display_errors', '1');
-
-
-//				$this->load->model('manager/Embarcaciones_model');
+			);
+			$this->js_datatable = $js_datatable;
+			$this->footer = $this->load->view('Manager/tpl/footer','',TRUE);
 				
-			
-//				$menu = $this->contenidos_model->nav_bar();
-			
-//				$datos = array(
-//					'menu' => $menu,
-//					'legis_conectadas' => $this->Legislaturas_model->get_legislatura(91),
-//				);
-			
-//				$this->nav = $this->load->view('web/secciones/nav', $datos, TRUE);
-//			
+				
   }
 		function _enviar_email($data, $usr = false, $html = "Consultas"){
 
@@ -72,7 +65,7 @@ class MY_controller extends CI_Controller {
 
 		}	
 }
-	class FrontendController extends MY_controller{
+class FrontendController extends MY_controller{
 		
     public function __construct()
     {
@@ -81,64 +74,41 @@ class MY_controller extends CI_Controller {
     }
 }
 
-	class BackendController extends MY_controller{
+class BackendController extends MY_controller{
 
 		public function __construct(){
-				parent::__construct();
+			parent::__construct();
 
-				if(!$this->ion_auth->user()->row()){
-							redirect('auth/login');
-						};
+			if(!$this->ion_auth->user()->row()){
+				redirect('auth/login');
+			};
 
-						$this->user = $this->ion_auth->user()->row();
+			$this->user = $this->ion_auth->user()->row();
+			$this->panel = $this->load_panel();
 			
 
+			$this->css_datatable =  array(
 			
-				/*CSS COMUNES PAAR EL BACKEND*/
-				$css_commons = array(
-					'static/manager/css/AdminLTE.css',
-					'static/manager/plugins/bootstrap/dist/css/bootstrap.min.css',
-					'static/manager/Ionicons/css/ionicons.min.css',
-					'static/manager/css/skins/_all-skins.min.css',
-					'static/manager/font-awesome/css/font-awesome.min.css',
-					'static/manager/plugins/toastr/toastr.min.css',
-				);
-				$this->css_commons = $css_commons;
-
-				/*SCRIPTS COMUNES PARA EL BACKEND */
-				$script_commons = array(
-					'static/manager/jquery/jquery.min.js',
-					'static/manager/plugins/toastr/toastr.js',
-					'static/manager/plugins/bootstrap/dist/js/bootstrap.min.js',
-					'static/manager/plugins/jquery-slimscroll/jquery.slimscroll.min.js',
-					'static/manager/plugins/fastclick/fastclick.js',
-					'static/manager/js/adminlte.js',
-					'static/manager/js/demo.js',
-				);
-				$this->script_commons = $script_commons;
+				'static/Manager/global_assets/datatables/datatables_checkbox.min.css',
+			);
 			
-				$this->panel = $this->load_panel();
+			
+			
 		}
 
 	 function load_panel(){
 
-		if (!$this->ion_auth->logged_in())
-		{
-			die('casdsasd');
+		if (!$this->ion_auth->logged_in()){
 			redirect('auth/login');
 		}else{
-
 			$user = $this->ion_auth->user()->row();
 			$datos = array (
-			'nav'=> $user->id,
+			'user'=> $user,
 			);
+			
+			
 
-			$data = array(
-		//	'header' => $this->load->view('manager/etiquetas/header', $datos, TRUE),
-			'aside' => $this->load->view('manager/etiquetas/aside',$datos,TRUE)
-			);
-
-			return $this->load->view('manager/etiquetas/aside',$datos,TRUE);
+			return $this->load->view('Manager/tpl/'.$user->app.'/toolbar',$datos,TRUE);
 		}
 	}
 		

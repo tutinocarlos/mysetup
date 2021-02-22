@@ -1,7 +1,6 @@
 
 <?php 
 
-session_start();
 if (!isset($_SESSION['usuario'])) {
 $usuario = 'nada';
 }else{
@@ -226,66 +225,7 @@ $usuario = 'algo';
 
         </header>
 
-        <!-- Hero -->
-        <section id="slider" class="hero p-0 d-none d-sm-block">
-            <div class="swiper-container full-slider animation slider-h-100 slider-h-auto">
 
-                <!-- Particles -->
-                <div id="particles-1" class="full-image" data-mask="50"></div>     
-                
-                <!-- Media -->
-                <div class="parallax-x-bg" style="background-image:url(<?= base_url('static/web/feli')?>/images/bg-parallax.png)" data-swiper-parallax="-50%"></div>
-
-                <div class="swiper-wrapper">
-
-
-                    <!-- Item 2 -->
-                    <div class="swiper-slide slide-center">
-                        <div class="slide-content row">
-                            <div class="col-12 d-flex justify-content-start justify-content-md-center inner">
-                                <div class="center text-left text-md-right">
-
-                                    <!-- Content -->
-                                    <span class="featured"><h2 data-aos="zoom-in" data-aos-delay="800" class="title effect-static-text">Pastelería</h2></span>
-                            <p data-aos="zoom-in" data-aos-delay="800" class="description aos-init aos-animate">Do not miss the opportunity to achieve better results and solidity in the market.</p>
-                                   
-                                    <!-- Action -->
-                                    <div data-aos="fade-up" data-aos-delay="1200" class="buttons">
-                                        <div class="d-sm-inline-flex">
-                                            <a href="#Pasteleria" class="smooth-anchor mt-4 btn primary-button">PEDIDOS ON-LINE</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item 3 -->
-                    <div class="swiper-slide slide-center">
-                        <div class="slide-content row">
-                            <div class="col-12 d-flex justify-content-start justify-content-md-end inner">
-                                <div class="right text-left">
-
-                                    <!-- Content -->
-                                    <h2 data-aos="zoom-in" data-aos-delay="400" class="title effect-static-text">whatsapp<span class="featured"><span>eShop</span></span></h2>
-                                    <p data-aos="zoom-in" data-aos-delay="800" class="description"></p>
-
-                                    <!-- Action -->
-                                    <div data-aos="fade-up" data-aos-delay="1200" class="buttons">
-                                        <div class="d-sm-inline-flex">
-                                            <a href="#Pasteleria" class="smooth-anchor mt-4 btn primary-button">OnLIne</a>
-                                    
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </section>
         <!-- Pasteleria -->
         <section id="Pasteleria" class="section-3 showcase blog-grid filter-section projects">
             <div class="overflow-holder">
@@ -302,41 +242,45 @@ $usuario = 'algo';
                                     <input type="radio" value="all" checked class="btn-filter-item">
                                     <span>Todo</span>
                                 </label>
+                                <?php foreach($categorias as $data): ?>
+                                
+                                <?php if($this->categorias->check($data->id_cate)): ?>
+                          
                                 <label class="btn">
-                                    <input type="radio" value="data_0" class="btn-filter-item">
-                                    <span>Tortas</span>
+                                    <input type="radio" value="cate_<?= $data->id_cate ?>" class="btn-filter-item">
+                                    <span><?= $data->nombre_cate ?></span>
                                 </label>
-                                <label class="btn">
-                                    <input type="radio" value="data_1" class="btn-filter-item">
-                                    <span>Alfajores</span>
-                                </label>
-                                <label class="btn">
-                                    <input type="radio" value="data_2" class="btn-filter-item">
-                                    <span>pastelillios</span>
-                                </label>           
-                                    <label class="btn">
-                                    <input type="radio" value="data_3" class="btn-filter-item">
-                                    <span>otros</span>
-                                </label>
+                                <?php endif; ?>
+                                <?php endforeach; ?>
+             
                           
                             </div>
                         </div>
                     </div>  
-                    
-                    <div class="row items filter-items">                       
-                     <?php for($x=0; $x < 6; $x++): ?>                                   
-                        <div class="col-12 col-md-6 col-lg-4 item filter-item" data-groups='["<?= 'data_'.$x?>","<?= 'data_1' ?>"]'>
+                    <div class="row items filter-items invisible">                       
+                     <?php foreach($productos as $data): ?>                                   
+                     <?php //for($x=0; $x < 6; $x++): ?>                                   
+<?php  
+$filtro = '';
+?>
+<?php foreach($data->categorias as $cate):?>
+<?php 
+$filtro .= '[cate_'.$cate->id_cateprod_cate.']';
+
+?>
+<?php endforeach;?>
+                        <div class="col-12 col-md-6 col-lg-4 item filter-item" data-groups='"<?= $filtro ?>"'>
                             <div class="row card p-0 text-center">
                                 <div class="image-over">
-                                    <img src="<?= base_url('static/web/feli')?>/images/product_<?= $x?>.jpg" alt="Lorem ipsum">
+                                    <img src="<?= base_url($data->url_imagen)?>" alt="<?= $data->nombre_producto ?>">
                                 </div>
                                 <div class="card-caption col-12 p-0">
                                     <div class="card-body">
-                                 <a href="#" class="primary-color" data-toggle="modal" data-target="#agregar" data-id="<?= $x?>"><i class="fas fa-cart-plus fa-2x"></i>
+                                 <a href="#" class="primary-color" data-toggle="modal" data-target="#agregar" data-id="<?= $data->id_producto?>"><i class="fas fa-cart-plus fa-2x"></i>
                                        </a>
-                                        <a href="#" class="primary-color" data-toggle="modal" data-target="#agregar" data-id="<?= $x?>">
-                                            <h4><?= 'producto_'.$x?></h4>
-                                            <p >detalle producto <?= $x?></p>
+                                        <a href="#" class="primary-color" data-toggle="modal" data-target="#agregar" data-id="<?= $data->id_producto?>">
+                                            <h4><?= $data->nombre_producto ?></h4>
+                                            <p ><?= $data->detalle_producto ?></p>
                                         </a>
                                     </div>
                                 </div>
@@ -344,7 +288,8 @@ $usuario = 'algo';
                             </div>
                         </div>            
        
-                     <?php endfor;?>                                   
+                     <?php //endfor;?>                                   
+                     <?php endforeach;?>                                   
 
                         <div class="col-1 filter-sizer"></div>
                     </div>
@@ -684,7 +629,7 @@ $usuario = 'algo';
                         <i class="icon-close fas fa-arrow-right"></i>
                     </div>
                     <div class="modal-body">
-                        <form action="/" class="row">
+                        <form action="<?= base_url('auth/login')?>" class="row">
                             <div class="col-12 p-0 align-self-center">
                                 <div class="row">
                                     <div class="col-12 p-0 pb-3">
@@ -694,15 +639,15 @@ $usuario = 'algo';
                                 </div>
                                 <div class="row">
                                     <div class="col-12 p-0 input-group">
-                                        <input type="email" class="form-control" placeholder="Email" required>
+                                        <input name="identity" type="email" class="form-control" placeholder="Email" required>
                                     </div>
                                     <div class="col-12 p-0 input-group">
-                                        <input type="password" class="form-control" placeholder="Password" required>
+                                        <input name="password" type="password" class="form-control" placeholder="Password" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 p-0 input-group align-self-center">
-                                        <button class="btn primary-button">SIGN IN</button>
+                                        <button class="btn primary-button">INGRESAR</button>
                                     </div>
                                 </div>
                             </div>
@@ -810,7 +755,7 @@ $usuario = 'algo';
         Particles
         =============================================== -->
         <script>
-            particles('space', 'particles-1');
+//            particles('space', 'particles-1');
         </script>
 
     </body>

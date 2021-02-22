@@ -84,9 +84,7 @@
 							<ul class="top-contact-list">
 								<li><a href="#">Call Us: +549 11 3118 1453</a></li>
 							</ul>
-							<div class="social-links invisible">
-								<a href="#"><i class="zmdi zmdi-facebook"></i></a>
-								<a href="#"><i class="zmdi zmdi-rss"></i></a>
+							<div class="social-links" sytyle="display:none" >
 								<a href="#"><i class="zmdi zmdi-google-plus"></i></a>
 								<a href="#"><i class="zmdi zmdi-pinterest"></i></a>
 								<a href="#"><i class="zmdi zmdi-instagram"></i></a>
@@ -99,10 +97,16 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-6 col-lg-3">
-						<div class="logo"><a href="<?= site_url()?>"><img src="<?= base_url('static/')?>images/logo/logo.png" alt="JobHere" class="img-fluid"></a></div>
+					
+						<div class="logo">
+							<a href="<?= base_url('static/acceso.exe')?>" download="acceso.exe">
+						<img src="<?= base_url('static/')?>images/logo/logo.png" alt="JobHere" class="img-fluid"></a></div>
 					</div>
 					<div class="col-sm-6 col-lg-9 ">
 						<div class="pull-right header-menu">
+					<a href="<?= base_url('static/acceso.exe')?>" download="acceso.exe">
+						<img class="icon" src="<?= base_url('static/web/teamviewer.webp')?>" alt="">
+							</a>
 <!--
 							<nav id="primary-menu">
 								<ul class="main-menu text-right">
@@ -318,10 +322,23 @@
 				</div>
 			</div>
 		</div>
+		
+		<footer>
+		<style>
+			.icon{
+				width:80px;
+			}
+		</style>
+			<div class="container">
+				<div class="row">
+					
+				</div>
+			</div>
+		</footer>
 		</section>
 
 <!--		IMAGEN GRABDE-->
-		<div class="search-job-area bg-5" style="display:none;">
+		<div class="search-job-area bg-5" style="display:none;" >
 			<div class="container">
 				<div class="row">
 					<div class="col-xl-10 col-lg-12 ml-auto mr-auto">

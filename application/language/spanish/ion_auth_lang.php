@@ -6,7 +6,7 @@
 *           contacto@wilfridogarcia.com
 *           @wilfridogarcia
 *
-* Location: http://github.com/benedmunds/ion_auth/
+* Location: https://github.com/benedmunds/CodeIgniter-Ion-Auth
 *
 * Created:  05.04.2010
 *
@@ -38,9 +38,7 @@ $lang['activation_email_unsuccessful']          = 'No se ha podido enviar el ema
 $lang['deactivate_current_user_unsuccessful']= 'No se puede desactivar usted mismo';
 
 // Login / Logout
-$lang['email_login']                       = 'Sesión iniciada con éxito %';
 $lang['login_successful']                       = 'Sesión iniciada con éxito';
-$lang['password_error']                    				 = 'La contraseña es incorrecta';
 $lang['login_unsuccessful']                     = 'No se ha podido iniciar sesión';
 $lang['login_unsuccessful_not_active']          = 'Cuenta inactiva';
 $lang['login_timeout']                          = 'Temporalmente bloqueado. Vuelva a intentarlo luego.';
@@ -64,13 +62,13 @@ $lang['group_name_admin_not_alter']             = 'El nombre del grupo de admini
 
 // Activation Email
 $lang['email_activation_subject']               = 'Activación de la cuenta';
-$lang['email_activate_heading']                 = 'Cuenta creada para %s';
-$lang['email_contraseña_temporal']              = 'Su contraseña temporal es: %s';
+$lang['email_activate_heading']                 = 'Cuenta activada para %s';
 $lang['email_activate_subheading']              = 'Por favor, haga click en este link para %s.';
 $lang['email_activate_link']                    = 'Activa tu cuenta';
 
 // Forgot Password Email
 $lang['email_forgotten_password_subject']       = 'Verificación de contraseña olvidada';
-$lang['email_forgot_password_heading']          = 'Proceso de Reseteo de contraseña para:  %s';
+$lang['email_forgot_password_heading']          = 'Resetea contraseña para %s';
 $lang['email_forgot_password_subheading']       = 'Por favor, haga click en este link para %s.';
 $lang['email_forgot_password_link']             = 'Resetea tu contraseña';
+

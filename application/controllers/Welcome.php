@@ -19,7 +19,21 @@ class Welcome extends MY_controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function cakeshop(){
-		$this->load->view('feli/index');
+		
+		
+		$data = array(
+			'categorias'=>$this->categorias->list(),
+			'productos'=>$this->productos->get_productos(),
+		);
+		
+		$this->load->view('feli/index', $data);
+		
+	}	public function login(){
+		$this->load->view('login');
+		
+	}	
+	public function cache(){
+		$this->load->view('cache/index');
 		
 	}
 	public function index()

@@ -88,14 +88,14 @@ class CI_Form_validation {
 	 *
 	 * @var string
 	 */
-	protected $_error_prefix	= '<p>';
+	protected $_error_prefix	= '<div class="alert alert-warning alert-styled-right alert-dismissible"><button type="button" class="close" data-dismiss="alert"><span>×</span></button><span class="font-weight-semibold">';
 
 	/**
 	 * End tag for error wrapping
 	 *
 	 * @var string
 	 */
-	protected $_error_suffix	= '</p>';
+	protected $_error_suffix	= '</span></div>';
 
 	/**
 	 * Custom error message
@@ -308,7 +308,7 @@ class CI_Form_validation {
 	 * @param	string
 	 * @return	CI_Form_validation
 	 */
-	public function set_error_delimiters($prefix = '<p>', $suffix = '</p>')
+	public function set_error_delimiters($prefix = '<div class="alert alert-warning alert-styled-right alert-dismissible"><button type="button" class="close" data-dismiss="alert"><span>×</span></button><span class="font-weight-semibold">', $suffix = '</span></div>')
 	{
 		$this->_error_prefix = $prefix;
 		$this->_error_suffix = $suffix;

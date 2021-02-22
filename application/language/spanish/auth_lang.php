@@ -1,4 +1,16 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+// Create Producto
+$lang['edit_prod_heading']             	= 'Editar Producto';
+$lang['edit_prod_submit_btn']          	= 'CONTINUAR';
+$lang['create_prod_heading']           	= 'Crear Producto';
+$lang['create_prod_subheading']        	= 'Por favor, introduzca la información del producto.';
+$lang['create_prod_nombre_laabel']    	= 'Nombre:';
+$lang['create_prod_detalle_laabel']    	= 'Detalle:';
+$lang['create_prod_importe_label']    	= 'Importe:';
+$lang['create_prod_submit_btn']       	= 'Crear Producto';
+$lang['create_prod_imagen_label']     	= 'Seleccionar Imagen';
+
 /**
 * Name:  Auth Lang - English
 *
@@ -8,11 +20,11 @@
 *
 * Author: Daniel Davis
 *         @ourmaninjapan
-* 
+*
 * Author: Josue Ibarra
 *         @josuetijuana
 *
-* Location: http://github.com/benedmunds/ion_auth/
+* Location: https://github.com/benedmunds/CodeIgniter-Ion-Auth
 *
 * Created:  03.09.2013
 *
@@ -55,6 +67,8 @@ $lang['deactivate_submit_btn']               = 'Enviar';
 $lang['deactivate_validation_confirm_label'] = 'confirmación';
 $lang['deactivate_validation_user_id_label'] = 'ID de usuario';
 
+
+//$lang['create_prod_company_label']                   = 'Compañía:';
 // Create User
 $lang['create_user_heading']                           = 'Crear Usuario';
 $lang['create_user_subheading']                        = 'Por favor, introduzca la información del usuario.';
@@ -134,7 +148,7 @@ $lang['forgot_password_subheading']              = 'Por favor, introduce tu %s p
 $lang['forgot_password_email_label']             = '%s:';
 $lang['forgot_password_submit_btn']              = 'Enviar';
 $lang['forgot_password_validation_email_label']  = 'Correo Electrónico';
-$lang['forgot_password_username_identity_label'] = 'Usuario';
+$lang['forgot_password_identity_label']          = 'Usuario';
 $lang['forgot_password_email_identity_label']    = 'Email';
 $lang['forgot_password_email_not_found']         = 'El correo electrónico no existe.';
 $lang['forgot_password_identity_not_found']         = 'No hay registros de esa dirección de usuario.';
@@ -150,9 +164,10 @@ $lang['reset_password_validation_new_password_confirm_label'] = 'Confirmar Nueva
 // Activation Email
 $lang['email_activate_heading']    = 'Activar cuenta por %s';
 $lang['email_activate_subheading'] = 'Por favor ingresa en este link para %s.';
-$lang['email_activate_link']       = 'Activar tu cuenta aquí';
+$lang['email_activate_link']       = 'Activar tu cuenta';
 
 // Forgot Password Email
 $lang['email_forgot_password_heading']    = 'Reestablecer contraseña para %s';
 $lang['email_forgot_password_subheading'] = 'Por favor ingresa en este link para %s.';
 $lang['email_forgot_password_link']       = 'Restablecer Tu Contraseña';
+
